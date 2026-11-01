@@ -1,298 +1,187 @@
-<div align="center">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000">
+<title>کتابخانه مدرسه استعدادهای ناب الصالحین</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--fg:#fff;--muted:#999;--line:#ffffff26;--glass:#ffffff09}
+*{box-sizing:border-box}body{margin:0;background:#000;color:#fff;font-family:Vazirmatn,sans-serif;min-height:100vh}button,input,select{font:inherit}button{cursor:pointer;color:inherit}input,select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:15px;background:#ffffff0c;color:#fff;outline:none;font-size:13px}input:focus,select:focus{border-color:#fff}input::placeholder{color:#777}select option{background:#111;color:#fff}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background-image:radial-gradient(#aaa8 .7px,transparent .7px);background-size:25px 25px;opacity:.9}.orb{position:absolute;width:430px;height:430px;border-radius:50%;background:#fff;filter:blur(130px);opacity:.07;animation:float 16s ease-in-out infinite alternate}.orb:nth-child(1){top:-240px;right:-100px}.orb:nth-child(2){bottom:-250px;left:-100px;animation-delay:-6s}.orb:nth-child(3){top:35%;left:38%;width:300px;height:300px;animation-delay:-11s}@keyframes float{to{transform:translate(80px,65px) scale(1.2)}}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}@keyframes pulse{50%{box-shadow:0 0 28px #fff2}}
+.wrap{width:min(1180px,94%);margin:auto;padding:25px 0 50px}.header,.glass,.stat,.card{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border-radius:24px}.header{display:flex;align-items:center;gap:15px;padding:18px 22px;margin-bottom:20px}.logo{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#777);color:#000;font-size:26px;font-weight:900}.header h1{font-size:18px;margin:0}.header p{font-size:11px;color:var(--muted);margin:5px 0 0}.headtag{margin-right:auto;color:#aaa;font-size:11px;text-align:left}
+.warning{display:none;padding:15px 18px;border:1px solid #fff8;border-radius:20px;background:#ffffff12;margin-bottom:18px;animation:pulse 2s infinite}.warning.show{display:flex;align-items:center;gap:12px}.warning div{flex:1}.warning strong{font-size:13px}.warning p{font-size:11px;color:#bbb;margin:4px 0 0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}.stat{padding:17px}.stat small{color:#aaa;font-size:11px}.stat b{display:block;font-size:28px;margin:7px 0 0}
+.tabs{display:flex;gap:7px;overflow:auto;padding:7px;border:1px solid var(--line);border-radius:20px;background:#ffffff08;margin-bottom:20px;scrollbar-width:none}.tab{white-space:nowrap;border:0;background:none;color:#aaa;border-radius:14px;padding:11px 18px;font-size:12px}.tab.active{background:#fff;color:#000;font-weight:800}
+.panel{display:none;animation:fade .3s}.panel.active{display:block}.section-title{font-size:17px;margin:0 0 15px}.section-title small{font-size:11px;color:#888;font-weight:400}.glass{padding:20px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.field label{display:block;font-size:11px;color:#aaa;margin:0 0 7px}.field.full{grid-column:1/-1}
+.btn{border:0;border-radius:14px;padding:11px 16px;font-size:12px;font-weight:800;transition:.2s}.primary{background:linear-gradient(135deg,#fff,#aaa);color:#000}.primary:hover{transform:translateY(-2px)}.ghost{background:transparent;border:1px solid #ffffff55}.danger{background:#fff;color:#000}.mini{width:33px;height:33px;border:1px solid #ffffff45;background:#ffffff0b;border-radius:50%;display:inline-grid;place-items:center}.mini:hover{background:#fff;color:#000}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.actions .btn{padding:8px 12px;font-size:11px}
+.search{max-width:470px;margin:14px 0}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{padding:16px;animation:fade .25s}.booktop,.studenttop,.loantop{display:flex;align-items:center;gap:13px}.ring{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;background:conic-gradient(#fff var(--pct),#333 0);position:relative}.ring:before{content:"";position:absolute;inset:6px;border-radius:50%;background:#101010}.ring span{z-index:1;text-align:center;font-size:15px;font-weight:800}.ring small{display:block;color:#aaa;font-size:9px;font-weight:400}.info{flex:1;min-width:0}.info strong{font-size:13px;display:block;overflow-wrap:anywhere}.info small{font-size:10px;color:#999;display:block;margin-top:5px}.avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#fff,#888);color:#000;font-weight:900;flex-shrink:0}.details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.detail{background:#ffffff09;border-radius:12px;padding:8px;min-width:0}.detail small{display:block;color:#888;font-size:9px}.detail b{font-size:11px;overflow-wrap:anywhere}.chip{display:inline-block;border:1px solid #ffffff40;border-radius:20px;padding:6px 10px;font-size:10px;color:#ddd}.chip.alert{background:#fff;color:#000;font-weight:800}.chip.done{border-style:dashed;color:#999}.empty{padding:35px 15px;text-align:center;border:1px dashed #ffffff35;border-radius:20px;color:#888;font-size:12px;grid-column:1/-1}
+.plusrow{display:flex;gap:7px}.plusrow select{flex:1}.plus{width:44px;border:1px solid #ffffff55;border-radius:14px;background:#ffffff0b;font-size:21px}.dategrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.loanlayout{display:grid;grid-template-columns:1fr 1fr;gap:12px}.loantitle{font-size:13px;margin:14px 0 10px}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.history{display:flex;gap:12px;align-items:center;margin-bottom:9px}.history .info{flex:1}.filters{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.filter{padding:8px 13px;border-radius:13px;border:1px solid #ffffff40;background:none;color:#aaa;font-size:11px}.filter.active{background:#fff;color:#000}
+.settings{display:grid;grid-template-columns:1fr 1fr;gap:13px}.setting h3{font-size:14px;margin:0 0 10px}.setting p{font-size:11px;color:#999;line-height:2}.setting input{max-width:180px;margin:10px 0}
+.modal{display:none;position:fixed;inset:0;z-index:10;background:#000c;backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:14px}.modal.show{display:flex}.modalbox{width:min(500px,100%);max-height:92vh;overflow:auto;background:#111;border:1px solid #ffffff35;border-radius:25px;padding:22px;animation:fade .25s}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.modalhead h2{font-size:15px;margin:0}.close{border:1px solid #ffffff40;border-radius:50%;width:32px;height:32px;background:none}
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,100px);opacity:0;z-index:30;padding:12px 20px;border-radius:15px;background:#fff;color:#000;font-size:12px;font-weight:700;transition:.3s;max-width:90%;text-align:center}.toast.show{transform:translate(-50%,0);opacity:1}.toast.error{background:#000;color:#fff;border:1px solid #fff}
+.studentcard{background:linear-gradient(135deg,#fff,#d5d5d5);color:#000;border-radius:22px;padding:22px;max-width:390px;margin:0 auto}.studentcard .school{font-size:11px;font-weight:800;border-bottom:1px solid #0003;padding-bottom:12px}.studentcard h2{font-size:22px;margin:17px 0 13px}.studentcard .meta{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:11px}.studentcard .meta b{display:block;margin-top:4px}.studentcard canvas{display:block;width:100%;height:48px;margin-top:18px;object-fit:fill}.cardcode{text-align:center;font-size:10px;letter-spacing:2px;margin-top:5px}
+.footer{text-align:center;color:#555;font-size:10px;margin-top:35px}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.loanlayout,.settings{grid-template-columns:1fr}.headtag{display:none}.header h1{font-size:15px}}
+@media(max-width:430px){.grid{grid-template-columns:1fr}.wrap{width:92%}.header{padding:14px}.logo{width:50px;height:50px}.stat{padding:13px}.stat b{font-size:23px}.glass{padding:15px}.tab{padding:10px 13px}}
+@media print{body *{visibility:hidden!important}#printArea,#printArea *{visibility:visible!important}#printArea{position:absolute;inset:0;margin:20px auto;width:390px}.studentcard{box-shadow:none!important}}
+</style>
+</head>
+<body>
+<div class="bg"><i class="orb"></i><i class="orb"></i><i class="orb"></i></div>
+<div class="wrap">
+<header class="header">
+ <div class="logo">ن</div>
+ <div><h1>کتابخانه مدرسه استعدادهای ناب الصالحین</h1><p>سامانه هوشمند مدیریت کتابخانه مدرسه</p></div>
+ <div class="headtag">NAB AL-SALEHIN<br>LIBRARY SYSTEM</div>
+</header>
+<div id="warning" class="warning"><span style="font-size:25px">!</span><div><strong id="warningTitle"></strong><p id="warningNames"></p></div><button class="btn ghost" onclick="switchTab('loans')">مشاهده</button></div>
+<section class="stats">
+ <div class="stat"><small>📚 تعداد کتاب‌ها</small><b id="statBooks">۰</b></div>
+ <div class="stat"><small>🎓 تعداد دانش‌آموزان</small><b id="statStudents">۰</b></div>
+ <div class="stat"><small>↗ امانت فعال</small><b id="statActive">۰</b></div>
+ <div class="stat"><small>✓ تحویل‌شده</small><b id="statReturned">۰</b></div>
+</section>
+<nav class="tabs">
+ <button class="tab active" data-tab="books">کتاب‌ها</button><button class="tab" data-tab="students">دانش‌آموزان</button><button class="tab" data-tab="loans">امانت</button><button class="tab" data-tab="history">تاریخچه</button><button class="tab" data-tab="settings">تنظیمات</button>
+</nav>
 
-# 📚 کتابخانه مدرسه استعدادهای ناب الصالحین
+<section id="books" class="panel active">
+ <h2 class="section-title">📚 مدیریت کتاب‌ها <small>ثبت و مدیریت موجودی</small></h2>
+ <form id="bookForm" class="glass grid">
+  <div class="field"><label>عنوان کتاب *</label><input id="bookTitle" required placeholder="نام کتاب"></div>
+  <div class="field"><label>نویسنده</label><input id="bookAuthor" placeholder="نام نویسنده"></div>
+  <div class="field"><label>تعداد نسخه</label><input id="bookTotal" type="number" min="1" value="1" required></div>
+  <button class="btn primary field full">＋ افزودن کتاب</button>
+ </form>
+ <input class="search" id="bookSearch" placeholder="جست‌وجو در عنوان یا نویسنده...">
+ <div id="bookList" class="cards"></div>
+</section>
 
-### سامانه مدیریت کتاب‌ها، دانش‌آموزان و امانت‌های کتابخانه
+<section id="students" class="panel">
+ <h2 class="section-title">🎓 مدیریت دانش‌آموزان</h2>
+ <form id="studentForm" class="glass grid">
+  <div class="field"><label>نام *</label><input id="first" required></div>
+  <div class="field"><label>نام خانوادگی *</label><input id="last" required></div>
+  <div class="field"><label>کلاس</label><select id="studentClass"></select></div>
+  <div class="field"><label>کد ملی (۱۰ رقم) *</label><input id="nationalId" inputmode="numeric" maxlength="10" pattern="[0-9۰-۹]{10}" required></div>
+  <button class="btn primary field full">ثبت و صدور کارت</button>
+ </form>
+ <input class="search" id="studentSearch" placeholder="جست‌وجو نام، کلاس، کد ملی یا کارت...">
+ <div id="studentList" class="cards"></div>
+</section>
 
-![HTML](https://img.shields.io/badge/HTML5-single--file-white?style=for-the-badge&logo=html5&logoColor=black)
-![CSS](https://img.shields.io/badge/CSS3-Glassmorphism-white?style=for-the-badge&logo=css3&logoColor=black)
-![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-white?style=for-the-badge&logo=javascript&logoColor=black)
-![RTL](https://img.shields.io/badge/Language-Persian%20%7C%20RTL-white?style=for-the-badge)
+<section id="loans" class="panel">
+ <h2 class="section-title">↗ ثبت امانت کتاب</h2>
+ <form id="loanForm" class="glass">
+  <div class="loanlayout">
+   <div class="field"><label>انتخاب دانش‌آموز</label><div class="plusrow"><select id="loanStudent"></select><button type="button" class="plus" title="ثبت دانش‌آموز" onclick="switchTab('students')">＋</button></div></div>
+   <div class="field"><label>انتخاب کتاب موجود</label><select id="loanBook"></select></div>
+   <div class="field"><label>تاریخ تحویل شمسی</label><div class="dategrid"><select id="borrowDay"></select><select id="borrowMonth"></select><select id="borrowYear"></select></div></div>
+   <div class="field" style="display:flex;align-items:end"><button class="btn primary" style="width:100%">ثبت امانت</button></div>
+  </div>
+ </form>
+ <h2 class="section-title" style="margin-top:25px">📖 کتاب‌های تحویل‌نشده</h2>
+ <div id="activeLoans" class="cards"></div>
+</section>
 
-**طراحی و توسعه: امیر علی حزباوی**
+<section id="history" class="panel">
+ <h2 class="section-title">🕘 تاریخچه امانت‌ها</h2>
+ <input class="search" id="historySearch" placeholder="جست‌وجوی نام، کتاب، کد ملی یا کد کارت...">
+ <div class="filters" id="historyFilters">
+  <button class="filter active" data-filter="all">همه</button><button class="filter" data-filter="active">تحویل‌نشده</button><button class="filter" data-filter="returned">تحویل‌شده</button><button class="filter" data-filter="late">دیرکرد</button>
+ </div>
+ <div id="historyList"></div>
+</section>
 
+<section id="settings" class="panel">
+ <h2 class="section-title">⚙ تنظیمات کتابخانه</h2>
+ <div class="settings">
+  <div class="glass setting"><h3>مدت امانت</h3><p>تعداد روز مجاز برای نگهداری هر کتاب را مشخص کنید.</p><input id="loanDays" type="number" min="1" max="365" value="14"><br><button class="btn primary" onclick="saveSettings()">ذخیره تنظیمات</button></div>
+  <div class="glass setting"><h3>پشتیبان‌گیری</h3><p>از اطلاعات کتابخانه فایل JSON تهیه کنید یا نسخه پشتیبان را بازیابی کنید.</p><button class="btn ghost" onclick="backup()">دریافت فایل JSON</button><br><br><label class="btn ghost" for="restoreFile">بازیابی فایل JSON</label><input id="restoreFile" type="file" accept=".json,application/json" hidden></div>
+  <div class="glass setting"><h3>حذف اطلاعات</h3><p>تمام کتاب‌ها، دانش‌آموزان و سوابق امانت پاک می‌شوند. این کار قابل بازگشت نیست.</p><button class="btn danger" onclick="clearAll()">پاک کردن همه داده‌ها</button></div>
+  <div class="glass setting"><h3>درباره سامانه</h3><p>کتابخانه مدرسه استعدادهای ناب الصالحین<br>نسخه تک‌فایلی، ذخیره‌سازی محلی مرورگر</p></div>
+ </div>
+</section>
+<div class="footer">کتابخانه مدرسه استعدادهای ناب الصالحین · طراحی و توسعه سامانه مدیریت کتابخانه</div>
 </div>
 
----
-
-## ✨ درباره پروژه
-
-«کتابخانه مدرسه استعدادهای ناب الصالحین» یک وب‌اپلیکیشن سبک و تک‌فایلی برای مدیریت امور روزمره کتابخانه مدرسه است. با این برنامه می‌توان کتاب‌ها و نسخه‌های آن‌ها را ثبت کرد، برای دانش‌آموزان کارت عضویت ساخت، امانت‌ها را ثبت و پیگیری کرد و از اطلاعات کتابخانه نسخه پشتیبان گرفت.
-
-رابط کاربری با چیدمان راست‌چین (RTL)، طراحی شیشه‌ای (Glassmorphism)، تم سیاه‌وسفید و فونت فارسی Vazirmatn ساخته شده است.
-
-> این برنامه برای اجرا در مرورگر طراحی شده و به نصب سرور، پایگاه داده یا ابزارهای برنامه‌نویسی نیاز ندارد.
-
-## 🖼️ تصاویر محیط برنامه
-
-تصاویر زیر پیش‌نمایش‌های تصویری رابط کاربری هستند و با اطلاعات نمونه ساخته شده‌اند؛ اطلاعات داخل تصاویر، اطلاعات واقعی دانش‌آموزان یا کتابخانه نیستند.
-
-### داشبورد و آمار
-
-![پیش‌نمایش داشبورد](assets/screenshots/dashboard.svg)
-
-### مدیریت کتاب‌ها
-
-![پیش‌نمایش مدیریت کتاب‌ها](assets/screenshots/books.svg)
-
-### مدیریت دانش‌آموزان
-
-![پیش‌نمایش دانش‌آموزان](assets/screenshots/students.svg)
-
-### ثبت و پیگیری امانت
-
-![پیش‌نمایش امانت‌ها](assets/screenshots/loans.svg)
-
-### تاریخچه امانت‌ها
-
-![پیش‌نمایش تاریخچه](assets/screenshots/history.svg)
-
-### تنظیمات و پشتیبان‌گیری
-
-![پیش‌نمایش تنظیمات](assets/screenshots/settings.svg)
-
----
-
-## 🚀 شروع سریع
-
-### روش اول: اجرای مستقیم
-
-1. فایل `index.html` را دریافت کنید.
-2. روی فایل دوبار کلیک کنید.
-3. فایل را با مرورگری مانند Google Chrome، Microsoft Edge یا Firefox باز کنید.
-4. از نوار بالای برنامه، بخش موردنظر را انتخاب کنید.
-
-**نیازی به نصب Python، Node.js، PHP، دیتابیس یا افزونه مرورگر نیست.**
-
-### روش دوم: دریافت پروژه از GitHub
-
-پس از قرار گرفتن پروژه در یک مخزن GitHub، می‌توانید آن را دریافت کنید:
-
-```bash
-git clone YOUR_REPOSITORY_URL
-cd YOUR_PROJECT_FOLDER
-```
-
-سپس فایل `index.html` را در مرورگر باز کنید. عبارت‌های نمونه بالا را با نشانی واقعی مخزن خود جایگزین کنید.
-
-## 🧭 آموزش کامل بخش‌ها
-
-### ۱. داشبورد
-
-در بالای صفحه، نام مدرسه و عنوان سامانه نمایش داده می‌شود. چهار کارت آماری وضعیت کلی کتابخانه را نشان می‌دهند:
-
-- **تعداد کتاب‌ها:** مجموع تعداد نسخه‌های ثبت‌شده، نه تعداد عنوان‌های متفاوت.
-- **تعداد دانش‌آموزان:** تعداد اعضای ثبت‌شده.
-- **امانت فعال:** تعداد امانت‌هایی که هنوز تحویل داده نشده‌اند.
-- **تحویل‌شده:** تعداد سوابقی که تاریخ بازگشت دارند.
-
-در صورت وجود امانت دیرکرددار، بنر هشدار در بالای صفحه برای نمایش موارد نیازمند پیگیری در نظر گرفته شده است.
-
-### ۲. مدیریت کتاب‌ها
-
-1. وارد تب **کتاب‌ها** شوید.
-2. عنوان کتاب را وارد کنید. عنوان اجباری است.
-3. در صورت تمایل نام نویسنده را وارد کنید.
-4. تعداد نسخه را تعیین کنید. مقدار پیش‌فرض ۱ است.
-5. روی **افزودن کتاب** بزنید.
-
-اگر عنوان و نویسنده کتاب با یک کتاب ثبت‌شده یکسان باشد، تعداد نسخه‌های همان کتاب افزایش پیدا می‌کند.
-
-در کارت هر کتاب، موجودی فعلی و تعداد کل نسخه‌ها نمایش داده می‌شود. جست‌وجو نیز بر اساس عنوان و نویسنده انجام می‌شود.
-
-- **امانت:** رفتن سریع به بخش امانت با انتخاب کتاب.
-- **ویرایش:** تغییر عنوان، نویسنده و تعداد کل نسخه‌ها.
-- **حذف:** حذف کتاب و سوابق امانت مرتبط پس از تأیید کاربر.
-
-تعداد کل نسخه‌ها هنگام ویرایش نباید از تعداد نسخه‌های در حال امانت کمتر باشد.
-
-### ۳. مدیریت دانش‌آموزان و صدور کارت
-
-1. وارد تب **دانش‌آموزان** شوید.
-2. نام و نام خانوادگی را وارد کنید.
-3. کلاس را از فهرست انتخاب کنید.
-4. کد ملی ۱۰ رقمی را وارد کنید.
-5. روی **ثبت و صدور کارت** بزنید.
-
-کد ملی تکراری پذیرفته نمی‌شود. برای هر دانش‌آموز یک کد کارت خودکار با قالب زیر ساخته می‌شود:
-
-```text
-NS-0001
-NS-0002
-NS-0003
-```
-
-کلاس‌های تعریف‌شده در برنامه دقیقاً عبارت‌اند از:
-
-`7/1`، `7/2`، `7/3`، `8/1`، `8/2`، `8/3`، `9/1`، `9/2`، `9/3`
-
-مقدار کلاس به همین شکل در اطلاعات ذخیره می‌شود، اما در رابط کاربری با اعداد فارسی نمایش داده می‌شود.
-
-**کارت دانش‌آموزی:** دکمه «کارت» را بزنید تا کارت عضویت شامل نام مدرسه، نام دانش‌آموز، کلاس، کد ملی، کد کارت و بارکد Code39 نمایش داده شود. از گزینه **چاپ کارت** برای چاپ استفاده کنید. گزینه دریافت بارکد نیز تصویر PNG بارکد را ذخیره می‌کند.
-
-### ۴. ثبت و مدیریت امانت
-
-1. به تب **امانت** بروید.
-2. دانش‌آموز را از فهرست انتخاب کنید. فهرست بر اساس کلاس و نام خانوادگی مرتب می‌شود.
-3. اگر دانش‌آموز هنوز ثبت نشده است، دکمه `＋` کنار فهرست را بزنید تا به فرم ثبت دانش‌آموز بروید.
-4. کتاب را از فهرست کتاب‌های دارای موجودی انتخاب کنید.
-5. روز، ماه و سال تحویل شمسی را مشخص کنید.
-6. روی **ثبت امانت** بزنید.
-
-برنامه فقط کتاب‌هایی را برای امانت نمایش می‌دهد که حداقل یک نسخه موجود داشته باشند. ثبت امانت بدون انتخاب دانش‌آموز یا کتاب امکان‌پذیر نیست.
-
-در فهرست امانت‌های فعال، اطلاعات دانش‌آموز، کلاس، عنوان کتاب، تاریخ تحویل و مهلت بازگشت نمایش داده می‌شود.
-
-- **تمدید:** مهلت بازگشت را به اندازه مدت امانت تنظیم‌شده جلو می‌برد.
-- **تحویل شد:** تاریخ بازگشت را برابر تاریخ شمسی روز ثبت می‌کند.
-- **حذف سابقه:** پس از تأیید، سابقه انتخاب‌شده را حذف می‌کند.
-
-### ۵. تاریخچه
-
-در تب **تاریخچه** می‌توانید سوابق امانت را مشاهده کنید. فیلترهای موجود عبارت‌اند از:
-
-- همه سوابق
-- تحویل‌نشده
-- تحویل‌شده
-- دیرکرد
-
-جست‌وجو با نام دانش‌آموز، عنوان کتاب، کد ملی یا کد کارت انجام می‌شود. برای امانت‌های فعال نیز امکان ثبت تحویل وجود دارد.
-
-### ۶. تنظیمات و پشتیبان‌گیری
-
-در تب **تنظیمات** می‌توانید مدت پیش‌فرض امانت را بر حسب روز تغییر دهید. مقدار اولیه ۱۴ روز است.
-
-**دریافت نسخه پشتیبان:**
-
-1. وارد تنظیمات شوید.
-2. گزینه دریافت فایل JSON را انتخاب کنید.
-3. فایل پشتیبان را در محلی امن نگه دارید.
-
-**بازیابی نسخه پشتیبان:**
-
-1. گزینه بازیابی از فایل JSON را انتخاب کنید.
-2. فایل پشتیبان قبلی را انتخاب کنید.
-3. جایگزینی اطلاعات را تأیید کنید.
-
-**پاک کردن اطلاعات:** با انتخاب گزینه پاک کردن همه داده‌ها، پس از تأیید، اطلاعات ذخیره‌شده برنامه پاک می‌شود. پیش از این کار از اطلاعات نسخه پشتیبان بگیرید.
-
----
-
-## 🗓️ تاریخ شمسی
-
-تاریخ‌ها در رابط کاربری به‌صورت شمسی نمایش داده می‌شوند. ساختار ذخیره‌سازی تاریخ در داده‌ها به شکل زیر است:
-
-```text
-1405/07/15
-```
-
-در نمایش فارسی، تاریخ به شکل زیر دیده می‌شود:
-
-```text
-۱۵ مهر ۱۴۰۵
-```
-
-توابع تاریخ موجود در کد:
-
-| تابع | کاربرد |
-|---|---|
-| `g2j(gy, gm, gd)` | تبدیل میلادی به شمسی |
-| `j2g(jy, jm, jd)` | تبدیل شمسی به میلادی |
-| `todayJ()` | دریافت تاریخ امروز به شمسی |
-| `addDaysJ(dateStr, n)` | افزودن تعداد روز به تاریخ شمسی |
-| `diffDaysJ(from, to)` | محاسبه اختلاف روز بین دو تاریخ |
-| `showDate(str)` | نمایش خوانای تاریخ شمسی |
-
-## 💾 ذخیره‌سازی اطلاعات و حریم خصوصی
-
-اطلاعات برنامه با کلید زیر در `localStorage` مرورگر ذخیره می‌شود:
-
-```js
-lib-nab-al-salehin-final
-```
-
-ساختار کلی اطلاعات شامل این بخش‌هاست:
-
-```js
-{
-  books: [],
-  students: [],
-  loans: [],
-  settings: { loanDays: 14 }
-}
-```
-
-نکات مهم:
-
-- ذخیره‌سازی به‌صورت خودکار در مرورگر انجام می‌شود.
-- اطلاعات به سرور ارسال نمی‌شوند و بین دستگاه‌ها به‌صورت خودکار همگام‌سازی نمی‌شوند.
-- داده‌ها به همان مرورگر و همان پروفایل کاربری وابسته‌اند.
-- پاک کردن داده‌های سایت، پاک‌سازی مرورگر یا استفاده از مرورگر/دستگاه دیگر ممکن است باعث از دست رفتن اطلاعات شود.
-- فایل پشتیبان JSON را در محل امن نگه دارید؛ این فایل می‌تواند شامل اطلاعات شخصی دانش‌آموزان باشد.
-- برای استفاده واقعی مدرسه، دسترسی به دستگاه و فایل‌های پشتیبان را محدود کنید و اطلاعات دانش‌آموزان را عمومی منتشر نکنید.
-
-## 🧰 فناوری‌های استفاده‌شده
-
-- **HTML5:** ساختار صفحه
-- **CSS3:** طراحی واکنش‌گرا، Glassmorphism، انیمیشن‌ها و حالت چاپ
-- **JavaScript خالص (Vanilla JS):** منطق برنامه و مدیریت داده‌ها
-- **localStorage:** ذخیره‌سازی محلی اطلاعات
-- **Canvas API:** رسم بارکد Code39 و تولید PNG
-- **Vazirmatn:** فونت فارسی از CDN
-
-هیچ فریم‌ورک یا کتابخانه جاوااسکریپت خارجی استفاده نشده است.
-
-## 📱 سازگاری
-
-رابط کاربری برای نمایش در موبایل، تبلت و دسکتاپ طراحی شده است. برای دریافت فونت Vazirmatn، اتصال اینترنت لازم است؛ در صورت قطع اینترنت، مرورگر از فونت جایگزین استفاده می‌کند.
-
-## 📁 ساختار پروژه
-
-```text
-nab-al-salehin-library/
-├── index.html
-├── README.md
-└── assets/
-    └── screenshots/
-        ├── dashboard.svg
-        ├── books.svg
-        ├── students.svg
-        ├── loans.svg
-        ├── history.svg
-        └── settings.svg
-```
-
-## ❓ عیب‌یابی کوتاه
-
-**اطلاعات بعد از بستن مرورگر ناپدید شده‌اند؟**
-
-ممکن است داده‌های سایت پاک شده باشند، مرورگر در حالت خصوصی اجرا شده باشد یا برنامه را در مرورگر/پروفایل دیگری باز کرده باشید. در صورت داشتن فایل پشتیبان، آن را بازیابی کنید.
-
-**فونت فارسی بارگذاری نمی‌شود؟**
-
-اتصال اینترنت را بررسی کنید؛ فونت از CDN دریافت می‌شود.
-
-**چرا کتاب در فهرست انتخاب امانت نیست؟**
-
-احتمالاً تمام نسخه‌های آن در امانت هستند. ابتدا باید یک نسخه بازگردانده شود.
-
----
-
-## 👨‍💻 سازنده
-
-<div align="center">
-
-### امیر علی حزباوی
-
-طراحی و توسعه وب‌اپلیکیشن کتابخانه مدرسه استعدادهای ناب الصالحین
-
-</div>
-
----
-
-<div align="center">
-
-**ساخته‌شده با تلاش و علاقه برای بهتر شدن مدیریت کتابخانه مدرسه** 📚
-
-</div>
-
+<div id="modal" class="modal" onclick="if(event.target===this)closeModal()"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">ویرایش</h2><button class="close" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
+<div id="toast" class="toast"></div>
+<script>
+'use strict';
+const KEY='lib-nab-al-salehin-final';
+const CLASSES=['7/1','7/2','7/3','8/1','8/2','8/3','9/1','9/2','9/3'];
+const MONTHS=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+const $=id=>document.getElementById(id);
+const fa=n=>String(n).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
+const en=s=>String(s).replace(/[۰-۹]/g,d=>'۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const defaults=()=>({books:[],students:[],loans:[],settings:{loanDays:14}});
+let db=load(),historyFilter='all';
+function load(){try{const x=JSON.parse(localStorage.getItem(KEY));if(x&&Array.isArray(x.books)&&Array.isArray(x.students)&&Array.isArray(x.loans))return {...defaults(),...x,settings:{loanDays:14,...x.settings}}}catch(e){}return defaults()}
+function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function toast(msg,error=false){const t=$('toast');t.textContent=msg;t.className='toast show'+(error?' error':'');clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.className='toast',2600)}
+function showModal(title,html){$('modalTitle').textContent=title;$('modalBody').innerHTML=html;$('modal').classList.add('show');setTimeout(()=>{$('modalBody').querySelector('input,select,button')?.focus()},80)}
+function closeModal(){$('modal').classList.remove('show')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+function switchTab(id){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===id));document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active',p.id===id));if(id==='loans')renderLoans();if(id==='students')renderStudents();if(id==='books')renderBooks();if(id==='history')renderHistory();window.scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>switchTab(b.dataset.tab)));
+function g2j(gy,gm,gd){let gdm=[0,31,59,90,120,151,181,212,243,273,304,334],gy2=gm>2?gy+1:gy;let days=355666+365*gy+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)+gd+gdm[gm-1];let jy=-1595+33*Math.floor(days/12053);days%=12053;jy+=4*Math.floor(days/1461);days%=1461;if(days>365){jy+=Math.floor((days-1)/365);days=(days-1)%365}let jm=days<186?1+Math.floor(days/31):7+Math.floor((days-186)/30);let jd=1+(days<186?days%31:(days-186)%30);return [jy,jm,jd]}
+function j2g(jy,jm,jd){jy+=1595;let days=-355668+365*jy+Math.floor(jy/33)*8+Math.floor((jy%33+3)/4)+jd+(jm<7?(jm-1)*31:(jm-7)*30+186);let gy=400*Math.floor(days/146097);days%=146097;if(days>36524){gy+=100*Math.floor(--days/36524);days%=36524;if(days>=365)days++}gy+=4*Math.floor(days/1461);days%=1461;if(days>365){gy+=Math.floor((days-1)/365);days=(days-1)%365}let gd=days+1;let sal=[0,31,(gy%4===0&&gy%100!==0)||gy%400===0?29:28,31,30,31,30,31,31,30,31,30,31],gm=1;while(gm<=12&&gd>sal[gm]){gd-=sal[gm];gm++}return [gy,gm,gd]}
+function todayJ(){const d=new Date(),a=g2j(d.getFullYear(),d.getMonth()+1,d.getDate());return jstr(a)}
+function jstr(a){return a[0]+'/'+String(a[1]).padStart(2,'0')+'/'+String(a[2]).padStart(2,'0')}
+function parseJ(s){return String(s).split('/').map(Number)}
+function addDaysJ(s,n){let [y,m,d]=parseJ(s),[gy,gm,gd]=j2g(y,m,d);let dt=new Date(Date.UTC(gy,gm-1,gd+n));return jstr(g2j(dt.getUTCFullYear(),dt.getUTCMonth()+1,dt.getUTCDate()))}
+function diffDaysJ(from,to){let a=parseJ(from),b=parseJ(to),x=j2g(...a),y=j2g(...b);return Math.round((Date.UTC(...[y[0],y[1]-1,y[2]])-Date.UTC(x[0],x[1]-1,x[2]))/86400000)}
+function showDate(s){if(!s)return '—';let [y,m,d]=parseJ(s);return `${fa(d)} ${MONTHS[m-1]||''} ${fa(y)}`}
+function classLabel(c){return fa(c)}
+function optionsClasses(selected='7/1'){return CLASSES.map(c=>`<option value="${c}" ${c===selected?'selected':''}>${classLabel(c)}</option>`).join('')}
+function fillDateSelectors(){const t=parseJ(todayJ());$('borrowDay').innerHTML=Array.from({length:31},(_,i)=>`<option value="${i+1}" ${i+1===t[2]?'selected':''}>${fa(i+1)}</option>`).join('');$('borrowMonth').innerHTML=MONTHS.map((m,i)=>`<option value="${i+1}" ${i+1===t[1]?'selected':''}>${m}</option>`).join('');$('borrowYear').innerHTML=Array.from({length:11},(_,i)=>t[0]-5+i).map(y=>`<option value="${y}" ${y===t[0]?'selected':''}>${fa(y)}</option>`).join('')}
+$('studentClass').innerHTML=optionsClasses();fillDateSelectors();
+function activeLoans(){return db.loans.filter(l=>!l.returnDate)}
+function available(b){return b.total-activeLoans().filter(l=>l.bookId===b.id).length}
+function studentOf(l){return db.students.find(s=>s.id===l.studentId)||{first:l.first||'دانش‌آموز',last:l.last||'',cls:l.cls||'',nationalId:'',cardCode:''}}
+function dueDate(l){return l.dueDate||addDaysJ(l.borrowDate,db.settings.loanDays)}
+function lateDays(l){return diffDaysJ(dueDate(l),todayJ())*-1}
+function render(){renderStats();renderWarning();renderBooks();renderStudents();renderLoans();renderHistory();$('loanDays').value=db.settings.loanDays}
+function renderStats(){$('statBooks').textContent=fa(db.books.reduce((a,b)=>a+b.total,0));$('statStudents').textContent=fa(db.students.length);$('statActive').textContent=fa(activeLoans().length);$('statReturned').textContent=fa(db.loans.filter(l=>l.returnDate).length)}
+function renderWarning(){let late=activeLoans().filter(l=>lateDays(l)>0),names=[...new Set(late.map(l=>{let s=studentOf(l);return s.first+' '+s.last}))];$('warning').classList.toggle('show',late.length>0);$('warningTitle').textContent=`${fa(late.length)} امانت دارای دیرکرد است`;$('warningNames').textContent=names.slice(0,3).join('، ')+(names.length>3?` و ${fa(names.length-3)} نفر دیگر`:'')}
+function renderBooks(){let q=$('bookSearch').value?.trim().toLowerCase()||'';let arr=db.books.filter(b=>(b.title+' '+b.author).toLowerCase().includes(q));$('bookList').innerHTML=arr.length?arr.map(b=>{let av=available(b),pct=b.total?Math.round(av/b.total*100):0;return `<article class="card"><div class="booktop"><div class="ring" style="--pct:${pct}%"><span>${fa(av)}<small>از ${fa(b.total)}</small></span></div><div class="info"><strong>${esc(b.title)}</strong><small>${esc(b.author||'نویسنده نامشخص')}</small><small>${av?'موجود':'ناموجود'} · ${fa(pct)}٪ موجودی</small></div></div><div class="actions">${av?`<button class="btn primary" onclick="quickLoan('${b.id}')">امانت</button>`:''}<button class="mini" title="ویرایش" onclick="editBook('${b.id}')">✎</button><button class="mini" title="حذف" onclick="deleteBook('${b.id}')">✕</button></div></article>`}).join(''):'<div class="empty">📚<br>کتابی پیدا نشد یا هنوز کتابی ثبت نشده است.</div>';renderLoanOptions()}
+function renderStudents(){let q=$('studentSearch').value?.trim().toLowerCase()||'';let arr=db.students.filter(s=>(s.first+' '+s.last+' '+s.cls+' '+s.nationalId+' '+s.cardCode).toLowerCase().includes(q));$('studentList').innerHTML=arr.length?arr.map(s=>{let count=activeLoans().filter(l=>l.studentId===s.id).length;return `<article class="card"><div class="studenttop"><div class="avatar">${esc(s.first.slice(0,1))}</div><div class="info"><strong>${esc(s.first+' '+s.last)}</strong><small>کلاس ${classLabel(s.cls)}</small></div></div><div class="details"><div class="detail"><small>کد ملی</small><b>${fa(s.nationalId)}</b></div><div class="detail"><small>کد کارت</small><b>${s.cardCode}</b></div><div class="detail"><small>امانت فعال</small><b>${fa(count)}</b></div><div class="detail"><small>کلاس</small><b>${classLabel(s.cls)}</b></div></div><div class="actions"><button class="btn primary" onclick="showStudentCard('${s.id}')">کارت</button><button class="mini" onclick="editStudent('${s.id}')">✎</button><button class="mini" onclick="deleteStudent('${s.id}')">✕</button></div></article>`}).join(''):'<div class="empty">🎓<br>دانش‌آموزی ثبت نشده است.</div>';renderLoanOptions()}
+function renderLoanOptions(){let sorted=[...db.students].sort((a,b)=>a.cls.localeCompare(b.cls,'en')||a.last.localeCompare(b.last,'fa'));$('loanStudent').innerHTML='<option value="">انتخاب دانش‌آموز</option>'+sorted.map(s=>`<option value="${s.id}">${esc(s.first+' '+s.last)} · ${classLabel(s.cls)}</option>`).join('');let current=$('loanBook').value;$('loanBook').innerHTML='<option value="">انتخاب کتاب</option>'+db.books.filter(b=>available(b)>0).map(b=>`<option value="${b.id}">${esc(b.title)} · موجود: ${fa(available(b))}</option>`).join('');if(db.books.some(b=>b.id===current&&available(b)>0))$('loanBook').value=current}
+function renderLoans(){$('activeLoans').innerHTML=activeLoans().length?activeLoans().map(l=>{let s=studentOf(l),left=diffDaysJ(todayJ(),addDaysJ(l.borrowDate,db.settings.loanDays));let chip=left>0?`<span class="chip alert">${fa(left)} روز باقی</span>`:left===0?'<span class="chip alert">آخرین روز</span>':`<span class="chip alert">${fa(-left)} روز تأخیر</span>`;return `<article class="card"><div class="loantop"><div class="avatar">${esc(s.first.slice(0,1))}</div><div class="info"><strong>${esc(s.first+' '+s.last)}</strong><small>کلاس ${classLabel(s.cls)}</small></div></div><div class="loantitle">${esc(l.bookTitle)}</div><div class="chips"><span class="chip">تحویل: ${showDate(l.borrowDate)}</span><span class="chip">مهلت: ${showDate(dueDate(l))}</span>${chip}</div><div class="actions"><button class="btn ghost" onclick="extendLoan('${l.id}')">تمدید</button><button class="btn primary" onclick="returnLoan('${l.id}')">تحویل شد</button><button class="mini" onclick="deleteLoan('${l.id}')">✕</button></div></article>`}).join(''):'<div class="empty">✓<br>هیچ کتاب تحویل‌نشده‌ای وجود ندارد.</div>';renderLoanOptions()}
+function renderHistory(){let q=$('historySearch').value?.trim().toLowerCase()||'';let arr=[...db.loans].sort((a,b)=>b.borrowDate.localeCompare(a.borrowDate));arr=arr.filter(l=>{let s=studentOf(l),late=!l.returnDate&&lateDays(l)>0;let matches=(s.first+' '+s.last+' '+l.bookTitle+' '+s.nationalId+' '+s.cardCode).toLowerCase().includes(q);return matches&&(historyFilter==='all'||(historyFilter==='active'&&!l.returnDate)||(historyFilter==='returned'&&!!l.returnDate)||(historyFilter==='late'&&late))});$('historyList').innerHTML=arr.length?arr.map(l=>{let s=studentOf(l);return `<article class="card history"><div class="avatar">${esc(s.first.slice(0,1))}</div><div class="info"><strong>${esc(s.first+' '+s.last)} · ${classLabel(s.cls)}</strong><small>${esc(l.bookTitle)} · تحویل: ${showDate(l.borrowDate)}</small><small>${l.returnDate?'تحویل‌شده: '+showDate(l.returnDate):lateDays(l)>0?'دیرکرد':'تحویل‌نشده'}</small></div>${!l.returnDate?`<button class="btn primary" onclick="returnLoan('${l.id}')">تحویل</button>`:''}<button class="mini" onclick="deleteLoan('${l.id}')">✕</button></article>`}).join(''):'<div class="empty">موردی در تاریخچه پیدا نشد.</div>'}
+function nextCardCode(){let max=db.students.reduce((m,s)=>Math.max(m,Number((s.cardCode||'').split('-')[1])||0),0);return 'NS-'+String(max+1).padStart(4,'0')}
+function validNational(v){v=en(v).replace(/\s/g,'');return /^\d{10}$/.test(v)}
+$('bookForm').addEventListener('submit',e=>{e.preventDefault();let title=$('bookTitle').value.trim(),author=$('bookAuthor').value.trim(),total=Number($('bookTotal').value);if(!title||!Number.isInteger(total)||total<1)return toast('عنوان و تعداد نسخه معتبر وارد کنید.',true);let old=db.books.find(b=>b.title.trim().toLowerCase()===title.toLowerCase()&&(b.author||'').trim().toLowerCase()===author.toLowerCase());if(old)old.total+=total;else db.books.push({id:uid(),title,author,total});e.target.reset();$('bookTotal').value=1;save();toast(old?'تعداد نسخه‌های کتاب افزایش یافت.':'کتاب با موفقیت ثبت شد.')});
+$('studentForm').addEventListener('submit',e=>{e.preventDefault();let first=$('first').value.trim(),last=$('last').value.trim(),cls=$('studentClass').value,nid=en($('nationalId').value).replace(/\s/g,'');if(!first||!last)return toast('نام و نام خانوادگی الزامی است.',true);if(!validNational(nid))return toast('کد ملی باید دقیقاً ۱۰ رقم باشد.',true);if(db.students.some(s=>s.nationalId===nid))return toast('این کد ملی قبلاً ثبت شده است.',true);let s={id:uid(),first,last,cls,nationalId:nid,cardCode:nextCardCode(),createdAt:todayJ()};db.students.push(s);e.target.reset();$('studentClass').value='7/1';save();toast('دانش‌آموز ثبت شد و کارت صادر گردید.');showStudentCard(s.id)});
+$('loanForm').addEventListener('submit',e=>{e.preventDefault();let sid=$('loanStudent').value,bid=$('loanBook').value;if(!sid||!bid)return toast('دانش‌آموز و کتاب را انتخاب کنید.',true);let b=db.books.find(x=>x.id===bid),s=db.students.find(x=>x.id===sid);if(!b||!s||available(b)<1)return toast('نسخه‌ای از این کتاب موجود نیست.',true);let date=jstr([Number($('borrowYear').value),Number($('borrowMonth').value),Number($('borrowDay').value)]);let [y,m,d]=parseJ(date);if(m<1||m>12||d<1||d>(m<=6?31:m<=11?30:((y%4===3)?30:29)))return toast('تاریخ شمسی معتبر نیست.',true);db.loans.push({id:uid(),studentId:s.id,bookId:b.id,bookTitle:b.title,first:s.first,last:s.last,cls:s.cls,borrowDate:date,returnDate:null});save();toast('امانت با موفقیت ثبت شد.')});
+$('bookSearch').addEventListener('input',renderBooks);$('studentSearch').addEventListener('input',renderStudents);$('historySearch').addEventListener('input',renderHistory);
+$('historyFilters').addEventListener('click',e=>{let b=e.target.closest('[data-filter]');if(!b)return;historyFilter=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));renderHistory()});
+function quickLoan(id){switchTab('loans');$('loanBook').value=id;$('loanStudent').focus()}
+function editBook(id){let b=db.books.find(x=>x.id===id);if(!b)return;showModal('ویرایش کتاب',`<form id="editBookForm" class="grid"><div class="field full"><label>عنوان</label><input id="ebTitle" required value="${esc(b.title)}"></div><div class="field"><label>نویسنده</label><input id="ebAuthor" value="${esc(b.author)}"></div><div class="field"><label>تعداد کل نسخه</label><input id="ebTotal" type="number" min="${activeLoans().filter(l=>l.bookId===id).length||1}" value="${b.total}"></div><button class="btn primary field full">ذخیره تغییرات</button></form>`);$('editBookForm').onsubmit=e=>{e.preventDefault();let total=Number($('ebTotal').value),borrowed=activeLoans().filter(l=>l.bookId===id).length;if(!$('ebTitle').value.trim()||!Number.isInteger(total)||total<borrowed)return toast('تعداد کل نمی‌تواند کمتر از نسخه‌های امانت‌داده‌شده باشد.',true);b.title=$('ebTitle').value.trim();b.author=$('ebAuthor').value.trim();b.total=total;db.loans.filter(l=>l.bookId===id&&!l.returnDate).forEach(l=>l.bookTitle=b.title);closeModal();save();toast('اطلاعات کتاب ویرایش شد.')}}
+function deleteBook(id){let b=db.books.find(x=>x.id===id);if(!b)return;let count=db.loans.filter(l=>l.bookId===id).length;confirmAction(`کتاب «${b.title}» و ${fa(count)} سابقه مرتبط حذف شود؟`,()=>{db.books=db.books.filter(x=>x.id!==id);db.loans=db.loans.filter(l=>l.bookId!==id);save();toast('کتاب و سوابق آن حذف شدند.')})}
+function editStudent(id){let s=db.students.find(x=>x.id===id);if(!s)return;showModal('ویرایش دانش‌آموز',`<form id="editStudentForm" class="grid"><div class="field"><label>نام</label><input id="esFirst" required value="${esc(s.first)}"></div><div class="field"><label>نام خانوادگی</label><input id="esLast" required value="${esc(s.last)}"></div><div class="field"><label>کلاس</label><select id="esClass">${optionsClasses(s.cls)}</select></div><div class="field full"><label>کد ملی</label><input id="esNid" maxlength="10" value="${fa(s.nationalId)}" required></div><button class="btn primary field full">ذخیره</button></form>`);$('editStudentForm').onsubmit=e=>{e.preventDefault();let nid=en($('esNid').value);if(!validNational(nid))return toast('کد ملی باید ۱۰ رقم باشد.',true);if(db.students.some(x=>x.id!==id&&x.nationalId===nid))return toast('کد ملی تکراری است.',true);Object.assign(s,{first:$('esFirst').value.trim(),last:$('esLast').value.trim(),cls:$('esClass').value,nationalId:nid});db.loans.filter(l=>l.studentId===id&&!l.returnDate).forEach(l=>Object.assign(l,{first:s.first,last:s.last,cls:s.cls}));closeModal();save();toast('اطلاعات دانش‌آموز ویرایش شد.')}}
+function deleteStudent(id){let s=db.students.find(x=>x.id===id);confirmAction(`دانش‌آموز «${s.first} ${s.last}» و تمام سوابق امانت او حذف شود؟`,()=>{db.students=db.students.filter(x=>x.id!==id);db.loans=db.loans.filter(l=>l.studentId!==id);save();toast('دانش‌آموز حذف شد.')})}
+function confirmAction(message,fn){showModal('تأیید عملیات',`<p style="font-size:13px;line-height:2;color:#ddd;margin-bottom:20px">${esc(message)}</p><div class="actions"><button class="btn primary" id="confirmYes">تأیید و ادامه</button><button class="btn ghost" onclick="closeModal()">انصراف</button></div>`);$('confirmYes').onclick=()=>{closeModal();fn()}}
+function returnLoan(id){let l=db.loans.find(x=>x.id===id);if(!l||l.returnDate)return;l.returnDate=todayJ();save();toast('تاریخ بازگشت ثبت شد.')}
+function extendLoan(id){let l=db.loans.find(x=>x.id===id);if(!l||l.returnDate)return;l.dueDate=addDaysJ(dueDate(l),db.settings.loanDays);save();toast('مهلت امانت تمدید شد.')}
+function deleteLoan(id){confirmAction('این سابقه امانت حذف شود؟',()=>{db.loans=db.loans.filter(l=>l.id!==id);save();toast('سابقه حذف شد.')})}
+function showStudentCard(id){let s=db.students.find(x=>x.id===id);if(!s)return;showModal('کارت دانش‌آموزی',`<div id="printArea"><div class="studentcard"><div class="school">مدرسه استعدادهای ناب الصالحین<br><small>کارت عضویت کتابخانه</small></div><h2>${esc(s.first+' '+s.last)}</h2><div class="meta"><div>کلاس<b>${classLabel(s.cls)}</b></div><div>کد ملی<b>${fa(s.nationalId)}</b></div><div>کد کارت<b>${s.cardCode}</b></div><div>تاریخ صدور<b>${showDate(s.createdAt)}</b></div></div><canvas id="barcode" width="700" height="90"></canvas><div class="cardcode">${s.cardCode}</div></div></div><div class="actions" style="justify-content:center"><button class="btn primary" onclick="window.print()">چاپ کارت</button><button class="btn ghost" onclick="downloadBarcode('${s.cardCode}')">دریافت بارکد PNG</button></div>`);drawBarcode('barcode',s.cardCode)}
+const CODE39={'0':'nnnwwnwnn','1':'wnnwnnnnw','2':'nnwwnnnnw','3':'wnwwnnnnn','4':'nnnwwnnnw','5':'wnnwwnnnn','6':'nnwwwnnnn','7':'nnnwnnwnw','8':'wnnwnnwnn','9':'nnwwnnwnn','A':'wnnnnwnnw','B':'nnwnnwnnw','C':'wnwnnwnnn','D':'nnnnwwnnw','E':'wnnnwwnnn','F':'nnwnwwnnn','G':'nnnnnwwnw','H':'wnnnnwwnn','I':'nnwnnwwnn','J':'nnnnwwwnn','K':'wnnnnnnww','L':'nnwnnnnww','M':'wnwnnnnwn','N':'nnnnwnnww','O':'wnnnwnnwn','P':'nnwnwnnwn','Q':'nnnnnnwww','R':'wnnnnnwwn','S':'nnwnnnwwn','T':'nnnnwnwwn','U':'wwnnnnnnw','V':'nwwnnnnnw','W':'wwwnnnnnn','X':'nwnnwnnnw','Y':'wwnnwnnnn','Z':'nwwnwnnnn','-':'nwnnnnwnw','.':'wwnnnnwnn',' ':'nwwnnnwnn','*':'nwnnwnwnn'};
+function barcodeData(code){return '*'+String(code).toUpperCase().replace(/[^0-9A-Z .-]/g,'')+'*'}
+function drawBarcode(id,code){let c=$(id);if(!c)return;let ctx=c.getContext('2d'),s=barcodeData(code),narrow=2,wide=5,x=12;ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#000';for(let ci=0;ci<s.length;ci++){let pattern=CODE39[s[ci]]||CODE39['-'];for(let i=0;i<9;i++){let w=pattern[i]==='w'?wide:narrow;if(i%2===0)ctx.fillRect(x,5,w,78);x+=w}x+=narrow} }
+function downloadBarcode(code){let c=document.createElement('canvas');c.width=700;c.height=90;c.id='tmpBarcode';document.body.appendChild(c);drawBarcode('tmpBarcode',code);let a=document.createElement('a');a.href=c.toDataURL('image/png');a.download=code+'.png';a.click();c.remove()}
+function saveSettings(){let n=Number($('loanDays').value);if(!Number.isInteger(n)||n<1||n>365)return toast('مدت امانت باید بین ۱ تا ۳۶۵ روز باشد.',true);db.settings.loanDays=n;save();toast('تنظیمات ذخیره شد.')}
+function backup(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='nab-al-salehin-library-backup.json';a.click();URL.revokeObjectURL(url);toast('فایل پشتیبان آماده شد.')}
+$('restoreFile').addEventListener('change',async e=>{let f=e.target.files[0];if(!f)return;try{let x=JSON.parse(await f.text());if(!Array.isArray(x.books)||!Array.isArray(x.students)||!Array.isArray(x.loans)||!x.settings)throw Error();confirmAction('اطلاعات فعلی با نسخه پشتیبان جایگزین شود؟',()=>{db={...defaults(),...x,settings:{loanDays:14,...x.settings}};save();toast('بازیابی با موفقیت انجام شد.')})}catch(err){toast('فایل پشتیبان معتبر نیست.',true)}e.target.value=''});
+function clearAll(){confirmAction('تمام اطلاعات کتابخانه برای همیشه پاک شود؟',()=>{db=defaults();localStorage.removeItem(KEY);save();toast('تمام داده‌ها پاک شدند.')})}
+render();
+</script>
+</body>
+</html>
